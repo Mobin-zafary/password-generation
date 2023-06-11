@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <div class="container mt_6">
+    <div class="colume centered">
+      <div class="box colume is-one_third">
+        <h1 class="title has-text-centered">password generation</h1>
+        <div class="feild">
+          <label>Lenght</label><br>
+          <input class="input" type="text" placeholder="difult is 0 length" (input)="onchangelength($any($event.target).value)"/>
+        </div>
+        <div class="feild">
+          <div class="control">
+            <label class="checkbox">
+              <input type="checkbox" (change)="onchangelatter()">Use latter
+               
+            </label>
+          </div>
+        </div>
+        <div class="feild">
+          <div class="control">
+            <label class="checkbox">
+              <input type="checkbox" (change)="onchangenumber()">Use number
+               
+            </label>
+          </div>
+        </div>
+        <div class="feild">
+          <div class="control">
+            <label class="checkbox">
+              <input type="checkbox" (change)="onchangesymbol()">Use symbol
+               
+            </label>
+          </div>
+        </div>
+        
+        <button  [disabled]="!(length && includelatter ||includenumber||includesymbol)" (click)="onButtonclick()"
+        class="button is-link is-fullwidth">Generate! 
+        </button>
+        <div class="box" *ngIf="password">
+          <label for="">Your password</label>
+          <input [value]="getpassword()" placeholder="password!" type="text"
+          class="input"><br>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</html>
